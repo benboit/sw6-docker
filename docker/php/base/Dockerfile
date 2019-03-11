@@ -1,0 +1,41 @@
+FROM alpine:3.9
+
+LABEL Benjamin Boit benboit@posteo.de
+
+RUN apk update && \
+    apk add --no-cache shadow && \
+    apk add --no-cache php7 && \
+    apk add --no-cache php7-common && \
+    apk add --no-cache php7-xsl && \
+    apk add --no-cache php7-xml && \
+    apk add --no-cache php7-xmlreader && \
+    apk add --no-cache php7-xmlwriter && \
+    apk add --no-cache php7-zip && \
+    apk add --no-cache php7-pdo && \
+    apk add --no-cache php7-pdo_mysql && \
+    apk add --no-cache php7-openssl && \
+    apk add --no-cache php7-opcache && \
+    apk add --no-cache php7-iconv && \
+    apk add --no-cache php7-intl && \
+    apk add --no-cache php7-gd && \
+    apk add --no-cache php7-curl && \
+    apk add --no-cache php7-fileinfo && \
+    apk add --no-cache php7-json && \
+    apk add --no-cache php7-fpm && \
+    rm -rf /var/cache/apk/*
+
+#ADD www.conf /etc/php7/php-fpm.d/www.conf
+#ADD php.ini /etc/php7/php.ini
+ADD run.sh /run.sh
+
+RUN adduser -u 83 php --gecos "" --disabled-password && \
+    addgroup -g 82 -S www-data && \
+    usermod -g www-data php && \
+    mkdir -p /run/php && touch /run/php/php7.0-fpm.pid && \
+    sed -i 's/127.0.0.1:9000/9000/g' /etc/php7/php-fpm.d/www.conf
+
+VOLUME ["/var/www"]
+
+EXPOSE 9000
+
+CMD ["/run.sh"]

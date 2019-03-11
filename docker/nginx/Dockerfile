@@ -1,5 +1,7 @@
 FROM nginx:1.14-alpine
 
+LABEL Benjamin Boit benboit@posteo.de
+
 RUN apk update && apk add --no-cache gettext && rm -rf /var/cache/apk/* 
 
 # remove default host

@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  php:
+    build: php/base
+    ports:
+      - "9000:9000"
