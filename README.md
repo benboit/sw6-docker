@@ -16,8 +16,8 @@ points will or may be covered in the future:
 
 ## Progress
 See [todo](TODO.md) for detailed information / roadmap
-* nginx-image => in progress
-* php-fpm image => in progress
+* nginx-image ([benboit/sw6-docker-nginx](https://hub.docker.com/r/benboit/sw6-docker-nginx)) => in progress
+* php-fpm image ([benboit/sw6-docker-php](https://hub.docker.com/r/benboit/sw6-docker-php)) => in progress
 * builder-image => not yet started
 * mysql-image => use of base-image (done)!
 * redis-image => use of base-image (done)!
