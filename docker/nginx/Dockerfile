@@ -1,4 +1,4 @@
-FROM nginx:1.10-alpine
+FROM nginx:1.14-alpine
 
 LABEL Benjamin Boit benboit@posteo.de
 
