@@ -1,8 +1,6 @@
-FROM nginx:1.14-alpine
+FROM nginx:1.10-alpine
 
 LABEL Benjamin Boit benboit@posteo.de
-
-RUN apk update && apk add --no-cache gettext && rm -rf /var/cache/apk/* 
 
 # remove default host
 RUN rm /etc/nginx/conf.d/default.conf
@@ -10,8 +8,8 @@ RUN rm /etc/nginx/conf.d/default.conf
 ADD nginx.crt /etc/nginx/ssl/nginx.crt
 ADD nginx.key /etc/nginx/ssl/nginx.key
 
-ADD nginx.conf /usr/src/nginx.conf.envsubst
-ADD shopware.conf /usr/src/php.conf.envsubst
+ADD nginx.conf /etc/nginx/nginx.conf
+ADD shopware.conf /etc/nginx/shopware.conf
 
 ADD run.sh /run.sh
 

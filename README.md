@@ -1,7 +1,7 @@
 # Shopware 6 Docker-Setup
 
 ## About
-This is an alternative docker-setup to the setup provided by shopware. This is
+This is an alternative docker-setup for the setup provided by shopware. This is
 a work-in-progress: expect bugs and things not working
 
 ## Vision
@@ -12,7 +12,7 @@ points will or may be covered in the future:
 * an out-of-the box useable development environment
 * a set of base-images to use for production / staging environments
 * base-images for packaging your shop as a distributable docker-image (builder-image)
-* create an easy to understand and use [todo](doc/) on how to do things
+* create an easy to understand and use [doc](doc/) on how to do things
 
 ## Progress
 See [todo](TODO.md) for detailed information / roadmap
@@ -23,4 +23,4 @@ See [todo](TODO.md) for detailed information / roadmap
 * redis-image => use of base-image (done)!
 * es-image => use of base-image (done)!
 
-[license](LICENSE.md)
+[LICENSE](LICENSE.md)

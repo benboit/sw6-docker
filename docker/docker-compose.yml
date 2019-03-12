@@ -1,9 +1,18 @@
 version: '3'
 
 services:
+  
   php:
     build: php/base
     ports:
       - "9000:9000"
     volumes:
-      - ".:/var/www"
+      - "./www:/var/www"
+  
+  nginx:
+    build: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./www:/var/www"   
