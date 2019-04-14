@@ -7,12 +7,31 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - "./www:/var/www"
-  
+      - "./../../shopware:/var/www"
+
+  cli:
+    build: php/cli
+    ports:
+      - "9100:9000"
+    volumes:
+      - "./../../shopware:/var/www"
+
   nginx:
     build: nginx
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - "./www:/var/www"   
+      - "./../../shopware:/var/www"
+
+  mysql:
+    image: mariadb:10.3
+    ports:
+      - "3306:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+
+  redis:
+    image: redis:4.0-alpine
+    ports:
+      - "6379:6379"

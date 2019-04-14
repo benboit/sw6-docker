@@ -7,7 +7,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - "./www:/var/www"
+      - "./:/var/www"
   
   nginx:
     image: benboit/sw6-docker-nginx:1.14
@@ -15,7 +15,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - "./www:/var/www"
+      - "./:/var/www"
 
   mysql:
     image: mariadb:10.3
