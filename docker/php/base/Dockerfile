@@ -30,15 +30,18 @@ RUN apk update && \
     apk add --no-cache php7-phar && \
     rm -rf /var/cache/apk/*
 
-#ADD www.conf /etc/php7/php-fpm.d/www.conf
-#ADD php.ini /etc/php7/php.ini
 ADD run.sh /run.sh
 
 RUN adduser -u 83 php --gecos "" --disabled-password && \
     addgroup -g 82 -S www-data && \
     usermod -g www-data php && \
     mkdir -p /run/php && touch /run/php/php7.0-fpm.pid && \
-    sed -i 's/127.0.0.1:9000/9000/g' /etc/php7/php-fpm.d/www.conf
+    sed -i 's/127.0.0.1:9000/9000/g' /etc/php7/php-fpm.d/www.conf && \
+    sed -i 's/user = nobody/user = php/g' /etc/php7/php-fpm.d/www.conf && \
+    sed -i 's/group = nobody/group = www-data/g' /etc/php7/php-fpm.d/www.conf
+
+ADD .bashrc /home/php/.bashrc
+RUN chown php:php /home/php/.bashrc
 
 VOLUME ["/var/www"]
 

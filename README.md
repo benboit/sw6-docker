@@ -1,8 +1,7 @@
 # Shopware 6 Docker-Setup
 
 ## About
-This is an alternative docker-setup for the setup provided by shopware. This is
-a work-in-progress: expect bugs and things not working!
+This is an alternative docker-setup for the setup provided by shopware.
 
 ## Vision
 The main idea behind this project is to create an alternative / better setup. These
@@ -37,10 +36,12 @@ Enter whatever details you like, with the exception of the following.
     Database password: root
  ```
 
- Create a hosts-entry or your host-machine [/etc/hosts] for shopware.local (or whatever host you configured during install)
+Create a hosts-entry or your host-machine [/etc/hosts] for shopware.local (or whatever host you configured during install)
  ```
  127.0.0.1 shopware.local
  ```
+
+The environment will then be available via http / https (i.e. https://shopware.local)
 
 ## Setup (macosx)
 For some reasons (filesystem) docker is slow for mounted volumes on macosx in the native version. There are a few known ways to make setups faster on that platform.
@@ -53,8 +54,8 @@ docker-machine-nfs replaces the virtual-box shares [slow] with nfs-shares, which
 
 ## Progress
 See [todo](TODO.md) for detailed information / roadmap
-* nginx-image ([benboit/sw6-docker-nginx](https://hub.docker.com/r/benboit/sw6-docker-nginx)) => in progress
-* php-fpm image ([benboit/sw6-docker-php](https://hub.docker.com/r/benboit/sw6-docker-php)) => in progress
+* nginx-image ([benboit/sw6-docker-nginx](https://hub.docker.com/r/benboit/sw6-docker-nginx)) => done
+* php-fpm image ([benboit/sw6-docker-php](https://hub.docker.com/r/benboit/sw6-docker-php)) => done
 * builder-image => not yet started
 * mysql-image => use of base-image (done)!
 * redis-image => use of base-image (done)!
