@@ -27,4 +27,5 @@ RUN NODE_VERSION="v12.3.1" && \
   cd node-$NODE_VERSION && \
   ./configure && \
   make && \
-  make install
+  make install && \
+  cd .. && rm -rf node-$NODE_VERSION.tar.gz node-$NODE_VERSION
