@@ -14,7 +14,7 @@ points will or may be covered in the future:
 * create an easy to understand and use [doc](doc/) on how to do things
 
 ## Setup (linux)
-Copy or [download](https://raw.githubusercontent.com/benboit/sw6-docker/master/example/docker-compose.yml) the example/docker-compose.yml to your project directory (project-root). Then follow these steps int the cli:
+Copy or [download](https://raw.githubusercontent.com/benboit/sw6-docker/master/example/docker-compose.yml) the example/docker-compose.yml to your project directory (project-root). Then follow these steps in the cli:
 
 Go to the project-root and start the containers.
  ```
@@ -48,6 +48,8 @@ For some reasons (filesystem) docker is slow for mounted volumes on macosx in th
 
 ### Use docker-machine (docker-toolbox) instead of native macosx-version
 Docker-Toolbox starts a virtual-machine [VirtualBox] with an installed docker-environment and configures a local docker-client to use the virtual-machine as a docker-host. All commands available in docker, as well as docker-compose are working in the same way, as if docker was installed locally.
+
+Please keep in mind, that you need to adjust the *localhost* ip used in the example to the ip of your docker-machine. (use *docker-machine ip* to find out!)
 
 ### Use docker-machine-nfs
 docker-machine-nfs replaces the virtual-box shares [slow] with nfs-shares, which increase filesystem-performance.
