@@ -25,7 +25,6 @@ Go to the project-root and start the containers.
 Enter the docker cli-container and start the shopware-setup.
  ```
     $ docker-compose exec -u php cli bash
-    $ cd /var/www
     $ bin/setup
  ```
 
