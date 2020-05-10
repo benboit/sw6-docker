@@ -3,7 +3,7 @@ version: '3'
 services:
   
   php:
-    image: benboit/sw6-docker-php:7.4
+    image: benboit/sw6-docker-php:7.3
     ports:
       - "9000:9000"
     volumes:
