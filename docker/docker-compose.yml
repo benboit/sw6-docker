@@ -9,13 +9,6 @@ services:
     volumes:
       - "./../../shopware:/var/www"
 
-  cli:
-    build: php/cli
-    ports:
-      - "9100:9000"
-    volumes:
-      - "./../../shopware:/var/www"
-
   nginx:
     build: nginx
     ports:

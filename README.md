@@ -24,8 +24,8 @@ Go to the project-root and start the containers.
 
 Enter the docker cli-container and start the shopware-setup.
  ```
-    $ docker-compose exec -u php cli bash
-    $ bin/setup
+    $ docker-compose exec -u www-data php bash
+    $ php recovery/install/index.php
  ```
 
 Enter whatever details you like, with the exception of the following.

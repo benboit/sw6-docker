@@ -3,16 +3,9 @@ version: '3'
 services:
   
   php:
-    image: benboit/sw6-docker-php:7.2
+    image: benboit/sw6-docker-php:7.4
     ports:
       - "9000:9000"
-    volumes:
-      - "./:/var/www"
-
-  cli:
-    image: benboit/sw6-docker-php:7.2-cli
-    ports:
-      - "9100:9000"
     volumes:
       - "./:/var/www"
   
