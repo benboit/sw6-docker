@@ -1,4 +1,5 @@
-FROM alpine:3.11
+ARG ALPINE_VERSION=3.11
+FROM alpine:$ALPINE_VERSION
 
 LABEL Benjamin Boit benboit@posteo.de
 
@@ -28,19 +29,16 @@ RUN apk update && \
     apk add --no-cache php7-json && \
     apk add --no-cache php7-fpm && \
     apk add --no-cache php7-phar && \
-    rm -rf /var/cache/apk/*
-
-ADD run.sh /run.sh
-
-RUN adduser -u 83 www-data --gecos "" --disabled-password && \
+    apk add --no-cache php7-ctype && \
+    rm -rf /var/cache/apk/* && \
+    adduser www-data --gecos "" --disabled-password && \
     usermod -g www-data www-data && \
     mkdir -p /run/php && touch /run/php/php7.0-fpm.pid && \
     sed -i 's/127.0.0.1:9000/9000/g' /etc/php7/php-fpm.d/www.conf && \
     sed -i 's/user = nobody/user = www-data/g' /etc/php7/php-fpm.d/www.conf && \
     sed -i 's/group = nobody/group = www-data/g' /etc/php7/php-fpm.d/www.conf
 
-ADD .bashrc /home/www-data/.bashrc
-RUN chown www-data:www-data /home/www-data/.bashrc
+ADD run.sh /run.sh
 
 VOLUME ["/var/www"]
 
